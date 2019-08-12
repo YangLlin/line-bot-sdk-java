@@ -38,7 +38,14 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        return new TextMessage(originalMessageText);
+        
+        TextMessage result = null;
+        if("87".equals(originalMessageText)){
+        	result =  new TextMessage("你全家都 87");
+        }else{
+        	result =  new TextMessage(originalMessageText);
+        }
+        return result;
     }
 
     @EventMapping
