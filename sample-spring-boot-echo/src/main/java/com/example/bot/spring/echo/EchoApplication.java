@@ -41,7 +41,7 @@ public class EchoApplication {
         
         TextMessage result = null;
         if("87".equals(originalMessageText)){
-        	result =  new TextMessage("你全家都 87");
+        	result =  new TextMessage("你全家都 88");
         	
         }else{
         	result =  new TextMessage(originalMessageText);
