@@ -198,15 +198,6 @@ subprojects {
         }
     }
 
-    checkstyle {
-        configProperties = [projectDir: rootProject.projectDir]
-        toolVersion = '8.21'
-    }
-
-    spotbugs {
-        excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
-    }
-
     compileJava {
         options.compilerArgs << '-Xlint:all' << '-Xlint:deprecation' << '-Werror' << '-Xlint:-processing' << '-parameters'
     }
