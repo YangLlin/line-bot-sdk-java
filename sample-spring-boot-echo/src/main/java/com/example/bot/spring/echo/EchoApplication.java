@@ -41,7 +41,8 @@ public class EchoApplication {
         
         TextMessage result = null;
         if("87".equals(originalMessageText)){
-        	result =  new TextMessage("§A¥þ®a³£ 87");
+        	result =  new TextMessage("ä½ å…¨å®¶éƒ½ 87");
+        	
         }else{
         	result =  new TextMessage(originalMessageText);
         }
