@@ -90,7 +90,7 @@ public class EchoApplication {
         		result =  new TextMessage("系統錯誤，請再試一次");
         	}else{
         		person.setName(originalMessageText);;
-        		
+        		person.setIsSetting("N");
         		boolean isSuccess = savePerson(person);
         		
         		if(isSuccess){
