@@ -19,13 +19,16 @@ package com.linecorp.bot.model.event;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Setter;
 import lombok.Value;
 
 /**
  * Request object for webhook.
  */
 @Value
+@Setter
 public class CallbackRequest {
     /**
      * A user ID of a bot that should receive webhook events. The user ID value is
@@ -39,8 +42,8 @@ public class CallbackRequest {
     private final List<Event> events;
 
     @JsonCreator
-    public CallbackRequest(final List<Event> events,
-                           final String destination) {
+    public CallbackRequest(@JsonProperty("events")final List<Event> events,
+    		@JsonProperty("destination")final String destination) {
         this.events = events;
         this.destination = destination;
     }

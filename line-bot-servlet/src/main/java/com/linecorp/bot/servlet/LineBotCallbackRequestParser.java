@@ -21,9 +21,11 @@ import java.nio.charset.StandardCharsets;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.google.common.io.ByteStreams;
-
 import com.linecorp.bot.client.LineSignatureValidator;
 import com.linecorp.bot.model.event.CallbackRequest;
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper;
@@ -33,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class LineBotCallbackRequestParser {
-    private final ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper();
+    private final ObjectMapper objectMapper = ModelObjectMapper.createNewObjectMapper().enable(SerializationFeature.INDENT_OUTPUT).registerModule(new ParameterNamesModule(Mode.PROPERTIES));
     private final LineSignatureValidator lineSignatureValidator;
 
     /**
